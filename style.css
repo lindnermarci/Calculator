@@ -46,3 +46,15 @@ body{
   .operator{
     background-color: aquamarine;
   }
+
+  .backspace{
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .equals{
+    padding-top: 90px;
+    grid-column-start: 4;
+    grid-row-start: 5;
+    grid-row-end: 7;
+  }

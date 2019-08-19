@@ -7,7 +7,7 @@ function operate(operator, a, b){
     console.log(b)
     console.log(operator)
 
-    if(operator === '+') return a + b
+    if(operator === '+') return Number(a) + Number(b)
     if(operator === '-') return a - b
     if(operator === '*') return Math.round(a * b * 100) / 100
     if(operator === '/') return divide(a,b)
@@ -39,7 +39,7 @@ function buttonLogic(){
     let operator = "";
     document.querySelectorAll(".grid-item").forEach(x => {
         x.addEventListener("click", e => {
-            if(!(e.target.classList.contains("display") || e.target.classList.contains("clear"))){
+            if(!(e.target.classList.contains("display") || e.target.classList.contains("clear") || e.target.classList.contains("backspace") )){
                 displayVal += e.target.textContent;
                 display.textContent = displayVal;
             }
@@ -64,6 +64,18 @@ function buttonLogic(){
                     b = "";
                     operator = "";
                 }
+            }
+            if(e.target.classList.contains("backspace")){
+                if(operator == "" || total != ""){
+                    a = a.slice(0, a.length-1)
+                    displayValue(a);
+                    total = "";
+                }
+                else{
+                    b = b.slice(0, b.length - 1)
+                    displayValue(b)
+                    total = "";
+                }     
             }
         })
     })
